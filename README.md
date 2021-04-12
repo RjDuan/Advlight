@@ -8,6 +8,8 @@ What if a beam of light can adversarially attack a DNN? Further, how about using
 In this work, we show by simply using a laser beam that DNNs are easily fooled.  
 To this end, we propose a novel attack method called Adversarial Laser Beam ($AdvLB$), which enables manipulation of laser beam's physical parameters to perform adversarial attack.
 ## Installation
+#### Dependencies
+* CUDA VERSION 10.2
 requirements.txt
 ## Basic Usage
 command
