@@ -13,9 +13,8 @@ To this end, we propose a novel attack method called Adversarial Laser Beam (Adv
 * CUDA VERSION 10.2
 #### Create environment
 ```sh
-conda create --n advlb_env
+conda env create -f environment.yaml
 conda activate advlb_env
-pip install -e requirements.txt
 ```
 ## Basic Usage
 #### Attack
