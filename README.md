@@ -21,7 +21,7 @@ conda activate advlb_env
 #### Code
 ```sh
 git clone https://github.com/RjDuan/AdvLB/
-cd AdvLB
+cd AdvLB-main
 ```
 ## Basic Usage
 #### Attack
