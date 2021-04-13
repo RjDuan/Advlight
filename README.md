@@ -22,7 +22,8 @@ Models | Std. Acc. rate(%) | Attack Succ. rate(%)
 ------------ | ------------- | -------------
 ResNet50(org) | 78.19 | 95.10
 ResNet50(adv trained) | 78.40 |77.20
-The "adversarial trained" model mentioned in Dicussion part can be downloaded [here](https://drive.google.com/file/d/1HtwnsCFqKkoJoSSHo23BP90_ZCAVD_L7/view?usp=sharing).
+
+The weights of "adv trained" ResNet50 model can be downloaded [here](https://drive.google.com/file/d/1HtwnsCFqKkoJoSSHo23BP90_ZCAVD_L7/view?usp=sharing).
 ## Physical setting
 ## Examples
 ## Limitations
