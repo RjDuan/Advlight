@@ -1,7 +1,7 @@
 # AdvLB
 Code and model for "Adversarial Laser Beam: Effective Physical-World Attack to DNNs in a Blink" (CVPR 2021)
 <p align='center'>
-  <img src='imgs/night-test.png' width='400'/>
+  <img src='imgs/night-test.png' width='800'/>
 </p>
 
 (All will be done before April 18th, hopefully.)
@@ -29,7 +29,12 @@ cd AdvLB
 python test.py --model resnet50 --dataset your_dataset
 ```
 #### Defense
-Besides revealing the potential threats of AdvLB, in this work, we also try to suggest an effective defense for laser beam attack. Similar to adversarial training, we progressively improve the robustness by injecting the laser beam as perturbations into the data for training. The details about training can be referred to the paper.
+Besides revealing the potential threats of AdvLB, in this work, we also analyze the reason of error caused by AdvLB and try to suggest an effective defense for laser beam attack. 
+<p align='center'>
+  <img src='imgs/err1.png' width='300'/>
+   <img src='imgs/err2.png' width='300'/>
+</p>
+Similar to adversarial training, we progressively improve the robustness by injecting the laser beam as perturbations into the data for training. The details about training can be referred to the paper.
 
 Models | Std. Acc. rate(%) | Attack Succ. rate(%)
 ------------ | ------------- | -------------
