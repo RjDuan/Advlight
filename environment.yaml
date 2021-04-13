@@ -1,0 +1,5 @@
+name: advlb_env
+channels:
+  - defaults
+prefix: /root/miniconda/envs/advlb_env
+
