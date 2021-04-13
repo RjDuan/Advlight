@@ -16,7 +16,13 @@ To this end, we propose a novel attack method called Adversarial Laser Beam (Adv
 #### Attack
 command
 #### Defense
-The "adv trained" model mentioned in Dicussion part can be downloaded here.
+Besides revealing the potential threats of AdvLB, in this work, we also try to suggest an effective defense for laser beam attack. Similar to adversarial training, we progressively improve the robustness by injecting the laser beam as perturbations into the data for training. The details about training can be referred to the paper.
+
+Models | Std. Acc. rate(%) | Attack Succ. rate(%)
+------------ | ------------- | -------------
+ResNet50(org) | 78.19 | 95.10
+ResNet50(adv trained) | 78.40 |77.20
+The "adversarial trained" model mentioned in Dicussion part can be downloaded [here](https://drive.google.com/file/d/1HtwnsCFqKkoJoSSHo23BP90_ZCAVD_L7/view?usp=sharing).
 ## Physical setting
 ## Examples
 ## Limitations
