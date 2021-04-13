@@ -1,6 +1,7 @@
 # AdvLB
 Code and model for "Adversarial Laser Beam: Effective Physical-World Attack to DNNs in a Blink" (CVPR 2021)
 
+
 (All will be done before April 18th, hopefully.)
 ## Introduction
 Natural phenomena may play the role of adversarial attackers, e.g., a blinding glare results in a fatal crash of a Tesla self-driving car.
@@ -29,5 +30,6 @@ The weights of "adv trained" ResNet50 model can be downloaded [here](https://dri
 ## Limitations
 Slow
 ## Q&A
+Questions are welcome (ranjieduan@gmail.com)
 ## Acknowlegement
 ## Cite
