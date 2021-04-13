@@ -10,22 +10,21 @@ import argparse
 import random
 import shutil
 import itertools
-
 from tqdm import tqdm
-
 from PIL import Image
 import torchvision.transforms.functional as transf
 
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--data', type=str, default='./query_imagenet', help='location of the data corpus')
+parser.add_argument('--dataset', type=str, default='./query_imagenet', help='location of the data corpus')
 parser.add_argument('--portion_for_search', type=float, default=1.0, help='portion of training data')
 parser.add_argument('--batch_size', type=int, default=1, help='batch size')
 parser.add_argument('--trial_nums', type=int, default=300, help='number of the trials')
-parser.add_argument('--model', type=str, default='resnet50', help='number of the trials')
+parser.add_argument('--model', type=str, default='resnet50', help='org model or adv trained model df_resnet50')
 parser.add_argument('--output_csv', type=str, default='random_search.csv', help='number of the trials')
-
+parser.add_argument('--save_dir', type=str, default='./results', help='dir to save results')
+parser.add_argument('--save', type=str, default=False, help='Save results')
 args = parser.parse_args()
 
 # transform
@@ -37,22 +36,6 @@ test_transform =  transforms.Compose([
         normalize,
     ])
 
-# dataset
-# imagenet_dataset = Query_Data('/root/project/data/query_imagenet', transform=test_transform)
-# imagenet_dataset = ImageFolder('/disk1/imagenet_val/val', transform=test_transform)
-imagenet_path_list = os.listdir(args.data)
-imagenet_dataset = []
-for img_path in imagenet_path_list:
-    imagenet_dataset.append((img_path, int(img_path.split('.')[0])))
-
-total_num = len(imagenet_dataset)
-current_num = 0
-
-# valid_queue = torch.utils.data.DataLoader(
-#     imagenet_dataset, batch_size=args.batch_size,
-#     sampler=torch.utils.data.sampler.SubsetRandomSampler(indices[split:total_num]),
-#     pin_memory=True, num_workers=16)
-
 # model
 if args.model == 'resnet50':
     print("Loading model...")
@@ -60,11 +43,27 @@ if args.model == 'resnet50':
 elif args.model == 'df_resnet50':
     print("Loading adv trained model...")
     model = resnet50(pretrained=False)
-    model.load_state_dict(torch.load('/root/project/data/checkpoint-89.pth.tar')['state_dict'])
-
-
+    model.load_state_dict(torch.load('./model/checkpoint-89.pth.tar')['state_dict'])
 model.cuda()
 model.eval()
+
+# dataset
+imagenet_path_list = os.listdir(args.dataset)
+imagenet_dataset = []
+for img_path in imagenet_path_list:
+    imagenet_dataset.append((img_path, int(img_path.split('.')[0])))
+
+total_num = len(imagenet_dataset)
+current_num = 0
+# save
+if args.save and not os.path.exists(args.save_dir):
+    os.mkdir(args.save_dir)
+# valid_queue = torch.utils.data.DataLoader(
+#     imagenet_dataset, batch_size=args.batch_size,
+#     sampler=torch.utils.data.sampler.SubsetRandomSampler(indices[split:total_num]),
+#     pin_memory=True, num_workers=16)
+
+
 
 # for cln_image, adv_image, target, index in search_queue:
 #     print(target, index)
@@ -91,7 +90,7 @@ Q = np.asarray([[1,0,0,0],
 
 for image_path, target in tqdm(imagenet_dataset):
     current_num += 1
-    img = Image.open(os.path.join('./query_imagenet', image_path).encode("utf-8")).convert('RGB')
+    img = Image.open(os.path.join(args.dataset, image_path).encode("utf-8")).convert('RGB')
 
     # clean
     clean_image = img.resize((256, 256), Image.BILINEAR)
@@ -118,10 +117,7 @@ for image_path, target in tqdm(imagenet_dataset):
     for i in range(200):
         init_v_it = [np.random.randint(380, 750), np.random.randint(0,180), np.random.randint(0,400), np.random.randint(10, 1600)]
         params_list.append(init_v_it)
-    # params_list = list(itertools.product(list(np.linspace(380, 750, num=4)),
-    # list(np.linspace(0, 180, num=4)),
-    # list(np.linspace(0, 400, num=4)),
-    # list(np.linspace(10, 1600, num=4))))
+
     for init_v in params_list:
 
         for search_i in range(delay_threhold):
@@ -143,6 +139,8 @@ for image_path, target in tqdm(imagenet_dataset):
                 img_with_light = simple_add(adv_image, tube_light, 1.0)
                 img_with_light = np.clip(img_with_light, 0.0, 255.0).astype('uint8')
                 img_with_light = Image.fromarray(img_with_light)
+                if args.save:
+                    img_with_light.save(os.path.join(args.save_dir, image_path))
 
                 img_with_light = img_with_light.resize((224, 224), Image.BILINEAR)
                 img_with_light = test_transform(img_with_light).unsqueeze(0)
