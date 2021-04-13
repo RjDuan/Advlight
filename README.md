@@ -1,7 +1,7 @@
 # AdvLB
 Code and model for "Adversarial Laser Beam: Effective Physical-World Attack to DNNs in a Blink" (CVPR 2021)
 <p align='center'>
-  <img src='imgs/1night-test.png' width='400'/>
+  <img src='imgs/night-test.png' width='400'/>
 </p>
 
 (All will be done before April 18th, hopefully.)
