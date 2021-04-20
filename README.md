@@ -36,20 +36,27 @@ Besides revealing the potential threats of AdvLB, in this work, we also analyze 
 </p>
 Similar to adversarial training, we progressively improve the robustness by injecting the laser beam as perturbations into the data for training. The details about training can be referred to the paper.
 
+<center>
 Models | Std. Acc. rate(%) | Attack Succ. rate(%)
 ------------ | ------------- | -------------
 ResNet50(org) | 78.19 | 95.10
 ResNet50(adv trained) | 78.40 |77.20
+<\center>
 
 The weights of "adv trained" ResNet50 model can be downloaded [here](https://drive.google.com/file/d/1HtwnsCFqKkoJoSSHo23BP90_ZCAVD_L7/view?usp=sharing).
 ```sh
 python test.py --model df_resnet50 --dataset your_dataset
 ```
 ## Physical setting
-## Examples
-## Limitations
-Slow
+
+## Limiations
+* Slow
+* Discuss limited pattern of light
+* Limited in the daytime
 ## Q&A
-Questions are welcome (ranjieduan@gmail.com)
+Questions are welcome via ranjieduan@gmail.com
 ## Acknowlegement
+* The defense part is completed by Xiaofeng Mao. 
 ## Cite
+
+
