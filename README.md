@@ -4,7 +4,7 @@ Code and model for "Adversarial Laser Beam: Effective Physical-World Attack to D
   <img src='imgs/night-test.png' width='700'/>
 </p>
 
-(All will be done before May 14th, hopefully.)
+(All will be done before next week, hopefully.)
 ## Introduction
 Natural phenomena may play the role of adversarial attackers, e.g., a blinding glare results in a fatal crash of a Tesla self-driving car.
 What if a beam of light can adversarially attack a DNN? Further, how about using a beam of light, specifically the laser beam, as the weapon to perform attacks.
@@ -47,6 +47,8 @@ The weights of "adv trained" ResNet50 model can be downloaded [here](https://dri
 ```sh
 python test.py --model df_resnet50 --dataset your_dataset
 ```
+## Dataset
+The dataset we used in the paper can be downloaded [here](https://drive.google.com/file/d/1sYNOkks0Ri5zj_xDqNMUuftB9Fp3PdK2/view?usp=sharing)
 ## Physical setting
 
 ## Limiations
