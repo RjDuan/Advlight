@@ -171,9 +171,9 @@ for image_path, target in tqdm(imagenet_dataset):
 
     if correct_adv:
         acc_adv += 1
-        print('{} attack failed\tqueries: {}\tmean queries: {}\tclean acc: {}\tadv acc:{}'.format(image_path, cur_search, total_q/current_num, acc_cln/current_num, acc_adv/current_num))
+        print('{} attack failed\tqueries: {}\tmean queries: {}\tclean acc: {}\tadv suc. rate:{}'.format(image_path, cur_search, total_q/current_num, acc_cln/current_num, acc_adv/current_num))
     else:
-        print('{} attack success\tqueries: {}\tmean queries: {}\tclean acc: {}\tadv acc:{}'.format(image_path, cur_search, total_q/current_num, acc_cln/current_num, acc_adv/current_num))
+        print('{} attack success\tqueries: {}\tmean queries: {}\tclean acc: {}\tadv suc. rate:{}'.format(image_path, cur_search, total_q/current_num, acc_cln/current_num, acc_adv/current_num))
 
 
 
