@@ -51,14 +51,18 @@ python test.py --model df_resnet50 --dataset your_dataset
 The dataset we used in the paper can be downloaded [here](https://drive.google.com/file/d/1sYNOkks0Ri5zj_xDqNMUuftB9Fp3PdK2/view?usp=sharing)
 ## Physical setting
 
-## Limiations
-* Slow
-* Discuss limited pattern of light
-* Limited in the daytime
+
 ## Q&A
 Questions are welcome via ranjieduan@gmail.com
 ## Acknowlegement
 * The defense part is completed by Xiaofeng Mao. 
 ## Cite
 
-
+@inproceedings{duan2021adversarial,
+  title={Adversarial Laser Beam: Effective Physical-World Attack to DNNs in a Blink},
+  author={Duan, Ranjie and Mao, Xiaofeng and Qin, A Kai and Chen, Yuefeng and Ye, Shaokai and He, Yuan and Yang, Yun},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={16062--16071},
+  year={2021}
+}
+{"mode":"full","isActive":false}
