@@ -58,7 +58,7 @@ Questions are welcome via ranjieduan@gmail.com
 * The defense part is completed by Xiaofeng Mao. 
 ## Cite
 
-'''
+```
 @inproceedings{duan2021adversarial,
   title={Adversarial Laser Beam: Effective Physical-World Attack to DNNs in a Blink},
   author={Duan, Ranjie and Mao, Xiaofeng and Qin, A Kai and Chen, Yuefeng and Ye, Shaokai and He, Yuan and Yang, Yun},
@@ -66,5 +66,5 @@ Questions are welcome via ranjieduan@gmail.com
   pages={16062--16071},
   year={2021}
 }
-'''
-{"mode":"full","isActive":false}
+```
+<!-- {"mode":"full","isActive":false} -->
